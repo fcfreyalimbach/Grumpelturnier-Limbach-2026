@@ -1,0 +1,405 @@
+/* =====================
+   GRUNDEINSTELLUNGEN
+===================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #eaf5ea;
+
+    color: #1b1b1b;
+
+}
+
+
+
+/* =====================
+   HEADER MIT LOGO
+===================== */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    background: #0b5d1e;
+
+    color: white;
+
+    padding: 15px 40px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.vereinslogo {
+
+    position: absolute;
+
+    left: 30px;
+
+    top: 25px;
+
+    width: 85px;
+
+    height: 85px;
+
+    object-fit: contain;
+
+}
+
+
+
+.header-text {
+
+    text-align: center;
+
+    margin-left: 40px;
+
+    margin-top: 30px;
+
+}
+
+
+
+.header-text h1 {
+
+    margin: 0;
+
+    font-size: 34px;
+
+}
+
+
+
+.header-text p {
+
+    margin-top: 5px;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+.datum {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+}
+
+
+/* =====================
+   NAVIGATION
+===================== */
+
+.navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+.navigation a {
+
+    text-decoration: none;
+
+    background: #198754;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+
+}
+
+
+
+.navigation a:hover {
+
+    background: #0b5d1e;
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* =====================
+   BEREICHE
+===================== */
+
+main {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+
+.box {
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    overflow-x: auto;
+
+}
+
+
+
+h2 {
+
+    text-align: center;
+
+    color: #0b5d1e;
+
+}
+
+
+
+/* =====================
+   TABELLEN
+===================== */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+
+}
+
+
+
+thead {
+
+    background: #0b5d1e;
+
+    color: white;
+
+}
+
+
+
+th {
+
+    padding: 12px;
+
+    text-align: center;
+
+    border-right: 1px solid #3b8f4b;
+
+}
+
+
+
+td {
+
+    padding: 10px;
+
+    text-align: center;
+
+    border-right: 1px solid #cfcfcf;
+
+    border-bottom: 1px solid #d8d8d8;
+
+}
+
+
+
+th:last-child,
+td:last-child {
+
+    border-right: none;
+
+}
+
+
+
+tbody tr:nth-child(even) {
+
+    background: #f4faf4;
+
+}
+
+
+
+tbody tr:hover {
+
+    background: #dff2df;
+
+}
+
+
+
+/* Mannschaftsnamen links */
+
+td:nth-child(2) {
+
+    text-align: left;
+
+    font-weight: bold;
+
+}
+
+
+
+/* =====================
+   FERTIGE SPIELE GRAU
+===================== */
+
+#spielplan tr:has(td:nth-child(6):not(:empty)),
+#koRunde tr:has(td:nth-child(6):not(:empty)) {
+
+    background: #eeeeee;
+
+}
+
+
+
+/* =====================
+   K.O.-RUNDE TITEL
+===================== */
+
+.runde-titel td {
+
+    text-align: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    background: #c8e6c9;
+
+    color: #0b5d1e;
+
+}
+
+
+
+/* =====================
+   MOBILE ANPASSUNG
+===================== */
+
+@media(max-width:700px) {
+
+
+    body {
+
+        padding: 10px;
+
+    }
+
+
+
+    .header {
+
+        flex-direction: column;
+
+        padding-top: 20px;
+
+    }
+
+
+
+    .vereinslogo {
+
+        position: static;
+
+        width: 90px;
+
+        height: 90px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+
+    .header-text {
+
+        margin-left: 0;
+
+        margin-top: 0;
+
+    }
+
+
+
+    .header-text h1 {
+
+        font-size: 24px;
+
+    }
+
+
+
+    .header-text p {
+
+        font-size: 16px;
+
+    }
+
+
+
+    th,
+    td {
+
+        font-size: 13px;
+
+        padding: 7px;
+
+    }
+
+}
