@@ -42,7 +42,7 @@ body {
 
     position: relative;
 
-    background: #0b5d1e;
+    background: #114B1F;
 
     color: white;
 
@@ -105,6 +105,9 @@ body {
     line-height: 1.8;
 
 }
+
+
+
 .datum {
 
     display: inline-block;
@@ -112,6 +115,7 @@ body {
     margin-top: 30px;
 
 }
+
 
 
 /* =====================
@@ -138,7 +142,7 @@ body {
 
     text-decoration: none;
 
-    background: #198754;
+    background: #808080;
 
     color: white;
 
@@ -156,7 +160,7 @@ body {
 
 .navigation a:hover {
 
-    background: #0b5d1e;
+    background: #0a3215;
 
     transform: scale(1.05);
 
@@ -190,17 +194,47 @@ main {
 
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 
-    overflow-x: auto;
+    overflow: hidden;
 
 }
 
+
+.box table {
+
+    display: block;
+
+    overflow-x: auto;
+
+    width: 100%;
+
+}
+@media(max-width:700px) {
+
+    .box {
+
+        padding: 15px;
+
+    }
+
+
+    h2 {
+
+        position: relative;
+
+        z-index: 2;
+
+        background: white;
+
+    }
+
+}
 
 
 h2 {
 
     text-align: center;
 
-    color: #0b5d1e;
+    color: #114B1F;
 
 }
 
@@ -224,7 +258,7 @@ table {
 
 thead {
 
-    background: #0b5d1e;
+    background: #114B1F;
 
     color: white;
 
@@ -320,9 +354,9 @@ td:nth-child(2) {
 
     font-weight: bold;
 
-    background: #c8e6c9;
+    background: #d1e6d3;
 
-    color: #0b5d1e;
+    color: #114B1F;
 
 }
 
