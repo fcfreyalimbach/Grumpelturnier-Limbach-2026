@@ -100,9 +100,7 @@ function zeigeTabelle(daten, zielID) {
 
             <td>${zeile[5] ?? ""}</td>
 
-            <td>${zeile[6] ?? ""}</td>
-
-            <td>${zeile[7] ?? ""}</td>
+            <td>${(zeile[6] ?? "") + " : " + (zeile[7] ?? "")}</td>
 
             <td>${zeile[8] ?? ""}</td>
 
