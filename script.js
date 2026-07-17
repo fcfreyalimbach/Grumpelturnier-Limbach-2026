@@ -1,578 +1,355 @@
-* {
-    box-sizing:border-box;
-}
+// =====================
+// EINSTELLUNGEN
+// =====================
 
+const API_URL = "https://script.google.com/macros/s/AKfycbwOAshkRev1wU_-KG4WwTSSYNQxc_I3xk9OaJO0INZ-6bXPSPRxEuZtUr9g49SSQ-cP/exec";
 
-html {
-    scroll-behavior:smooth;
-}
-
-
-body {
-
-    margin:0;
-
-    padding:20px;
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:#eaf5ea;
-
-    color:#1b1b1b;
-
-}
+const AKTUALISIERUNG = 5000;
 
 
 
-/* =====================
-   HEADER
-===================== */
+// =====================
+// DATEN LADEN
+// =====================
 
-.header {
+async function ladeTabelle() {
 
-    display:flex;
+    try {
 
-    align-items:center;
+        const antwort = await fetch(
+            API_URL + "?t=" + Date.now()
+        );
 
-    justify-content:center;
 
-    position:relative;
-
-    background:#114B1F;
-
-    color:white;
-
-    padding:15px 40px;
-
-    border-radius:15px;
-
-    margin-bottom:20px;
-
-}
+        const daten = await antwort.json();
 
 
 
-.vereinslogo {
+        zeigeTabelle(
+            daten.gruppeA,
+            "gruppeA"
+        );
 
-    position:absolute;
 
-    left:30px;
+        zeigeTabelle(
+            daten.gruppeB,
+            "gruppeB"
+        );
 
-    top:15px;
 
-    width:90px;
 
-    height:90px;
+        zeigeSpielplan(
+            daten.spielplan,
+            "spielplan"
+        );
 
-    object-fit:contain;
+
+        zeigeKORunde(
+            daten.koRunde,
+            "koRunde"
+        );
+
+
+    } catch (fehler) {
+
+        console.error(
+            "Fehler beim Laden:",
+            fehler
+        );
+
+    }
 
 }
 
 
 
-.header-text {
+// =====================
+// LIVE TABELLE
+// =====================
 
-    text-align:center;
+function zeigeTabelle(daten, zielID) {
 
-}
-
-
-
-.header-text h1 {
-
-    margin:0;
-
-    font-size:34px;
-
-}
+    let html = "";
 
 
+    daten.forEach(zeile => {
 
-.header-text p {
 
-    margin-top:5px;
-
-    font-size:18px;
-
-    line-height:1.5;
-
-}
+        if (
+            !zeile[1] ||
+            zeile[1].toString().trim() === ""
+        ) {
+            return;
+        }
 
 
 
-.datum {
+        html += `
 
-    display:inline-block;
+        <tr>
 
-    margin-top:15px;
+            <td>${zeile[0] ?? ""}</td>
 
-}
+            <td>${zeile[1] ?? ""}</td>
+
+            <td>${zeile[2] ?? ""}</td>
+
+            <td>${zeile[3] ?? ""}</td>
+
+            <td>${zeile[4] ?? ""}</td>
+
+            <td>${zeile[5] ?? ""}</td>
+
+            <td>${zeile[6] ?? ""}</td>
+
+            <td>${zeile[7] ?? ""}</td>
+
+            <td>${zeile[8] ?? ""}</td>
+
+            <td>${zeile[9] ?? ""}</td>
+
+            <td>${zeile[10] ?? ""}</td>
+
+        </tr>
+
+        `;
+
+    });
 
 
 
-/* =====================
-   NAVIGATION
-===================== */
-
-.navigation {
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin-bottom:25px;
-
-    flex-wrap:wrap;
-
-}
-
-
-
-.navigation a {
-
-    text-decoration:none;
-
-    background:#114B1F;
-
-    color:white;
-
-    padding:12px 25px;
-
-    border-radius:10px;
-
-    font-weight:bold;
+    document
+        .getElementById(zielID)
+        .innerHTML = html;
 
 }
 
 
 
-.navigation a:hover {
+// =====================
+// ERGEBNIS FORMATIEREN
+// =====================
 
-    background:#0a3215;
-
-}
+function erstelleErgebnis(heim, gast) {
 
 
+    if (
+        heim === "" ||
+        gast === "" ||
+        heim == null ||
+        gast == null
+    ) {
 
-/* =====================
-   BEREICHE
-===================== */
+        return "";
 
-main {
-
-    max-width:1200px;
-
-    margin:auto;
-
-}
+    }
 
 
 
-.box {
+    let heimTore = Number(heim);
 
-    background:white;
-
-    padding:20px;
-
-    margin-bottom:25px;
-
-    border-radius:15px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
-
-}
+    let gastTore = Number(gast);
 
 
 
-h2 {
-
-    text-align:center;
-
-    color:#114B1F;
-
-}
+    if (heimTore > gastTore) {
 
 
+        return `
+            <b>${heimTore}</b> : ${gastTore}
+        `;
 
-/* =====================
-   TABELLEN SCROLL
-===================== */
 
-.tabelle-scroll {
+    } else if (gastTore > heimTore) {
 
-    width:100%;
 
-    overflow-x:auto;
+        return `
+            ${heimTore} : <b>${gastTore}</b>
+        `;
+
+
+    } else {
+
+
+        return `
+            ${heimTore} : ${gastTore}
+        `;
+
+    }
 
 }
 
 
 
-/* =====================
-   TABELLEN
-===================== */
+// =====================
+// SPIELPLAN
+// =====================
 
-table {
+function zeigeSpielplan(daten, zielID) {
 
-    width:auto;
-
-    min-width:100%;
-
-    border-collapse:collapse;
-
-    table-layout:auto;
-
-}
+    let html = "";
 
 
+    daten.forEach(zeile => {
 
-thead {
 
-    background:#114B1F;
-
-    color:white;
-
-}
+        if (
+            !zeile[0] ||
+            zeile[0].toString().trim() === ""
+        ) {
+            return;
+        }
 
 
 
-th {
-
-    padding:12px;
-
-    text-align:center;
-
-    border-right:1px solid #3b8f4b;
-
-}
+        let ergebnis =
+            erstelleErgebnis(
+                zeile[5],
+                zeile[6]
+            );
 
 
 
-td {
+        html += `
 
-    padding:10px;
+        <tr>
 
-    text-align:center;
+            <td>${zeile[0] ?? ""}</td>
 
-    border-right:1px solid #cfcfcf;
+            <td>${zeile[1] ?? ""}</td>
 
-    border-bottom:1px solid #d8d8d8;
+            <td>${zeile[2] ?? ""}</td>
 
-}
+            <td>${zeile[3] ?? ""}</td>
+
+            <td>${zeile[4] ?? ""}</td>
+
+            <td>${ergebnis}</td>
+
+            <td>${zeile[7] ?? ""}</td>
+
+        </tr>
+
+        `;
+
+
+    });
 
 
 
-th:last-child,
-td:last-child {
-
-    border-right:none;
-
-}
-
-
-
-tbody tr:nth-child(even) {
-
-    background:#f4faf4;
+    document
+        .getElementById(zielID)
+        .innerHTML = html;
 
 }
 
 
 
-tbody tr:hover {
+// =====================
+// K.O.-RUNDE
+// =====================
 
-    background:#dff2df;
+function zeigeKORunde(daten, zielID) {
 
-}
-
-
-
-/* Mannschaft links */
-
-td:nth-child(2) {
-
-    text-align:left;
-
-    font-weight:bold;
-
-    white-space:nowrap;
-
-}
+    let html = "";
 
 
+    html += `
 
-/* =====================
-   TOP 2 GRUPPEN
-===================== */
+    <tr class="runde-titel">
 
-#gruppeA tr:nth-child(1),
-#gruppeA tr:nth-child(2),
-#gruppeB tr:nth-child(1),
-#gruppeB tr:nth-child(2) {
+        <td colspan="7">
+            Halbfinale
+        </td>
 
-    background:#E8F5E9;
+    </tr>
 
-}
+    `;
 
 
 
-/* =====================
-   GESPIELTE PARTIEN
-===================== */
-
-#spielplan tr:has(td:nth-child(6):not(:empty)),
-#koRunde tr:has(td:nth-child(6):not(:empty)) {
-
-    background:#E6E6E6;
-
-}
+    daten.forEach((zeile, index) => {
 
 
 
-/* =====================
-   K.O.-RUNDE
-===================== */
-
-.runde-titel td {
-
-    background:#E8F5E9;
-
-    color:#114B1F;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    text-align:center;
-
-    padding:15px;
-
-}
+        if (!zeile[0]) {
+            return;
+        }
 
 
 
-/* =====================
-   SPIELPLAN / K.O.
-===================== */
+        if (index === 2) {
 
 
-/* Spiel */
+            html += `
 
-#spielplan th:nth-child(1),
-#spielplan td:nth-child(1),
-#koRunde th:nth-child(1),
-#koRunde td:nth-child(1) {
+            <tr class="runde-titel">
 
-    width:55px;
+                <td colspan="7">
+                    Finale
+                </td>
 
-}
+            </tr>
+
+            `;
+
+        }
 
 
 
-/* Beginn */
+        let ergebnis =
+            erstelleErgebnis(
+                zeile[8],
+                zeile[9]
+            );
 
-#spielplan th:nth-child(2),
-#spielplan td:nth-child(2),
-#koRunde th:nth-child(2),
-#koRunde td:nth-child(2) {
 
-    width:75px;
+
+        html += `
+
+        <tr>
+
+            <td>${zeile[0] ?? ""}</td>
+
+            <td>${zeile[4] ?? ""}</td>
+
+            <td>${zeile[5] ?? ""}</td>
+
+            <td>${zeile[6] ?? ""}</td>
+
+            <td>${zeile[7] ?? ""}</td>
+
+            <td>${ergebnis}</td>
+
+            <td>${zeile[10] ?? ""}</td>
+
+        </tr>
+
+        `;
+
+
+    });
+
+
+
+    document
+        .getElementById(zielID)
+        .innerHTML = html;
 
 }
 
 
 
-/* Platz */
+// =====================
+// START
+// =====================
 
-#spielplan th:nth-child(3),
-#spielplan td:nth-child(3),
-#koRunde th:nth-child(3),
-#koRunde td:nth-child(3) {
 
-    width:55px;
+ladeTabelle();
 
-}
 
 
-
-/* Ergebnis */
-
-#spielplan th:nth-child(6),
-#spielplan td:nth-child(6),
-#koRunde th:nth-child(6),
-#koRunde td:nth-child(6) {
-
-    width:80px;
-
-}
-
-
-
-/* Mannschaften */
-
-#spielplan th:nth-child(4),
-#spielplan td:nth-child(4),
-#spielplan th:nth-child(5),
-#spielplan td:nth-child(5),
-#koRunde th:nth-child(4),
-#koRunde td:nth-child(4),
-#koRunde th:nth-child(5),
-#koRunde td:nth-child(5) {
-
-    white-space:nowrap;
-
-}
-
-
-
-/* Shootout */
-
-#spielplan th:nth-child(7),
-#spielplan td:nth-child(7),
-#koRunde th:nth-child(7),
-#koRunde td:nth-child(7) {
-
-    width:100px;
-
-}
-
-
-
-/* =====================
-   MOBILE
-===================== */
-
-@media(max-width:700px) {
-
-
-body {
-
-    padding:10px;
-
-}
-
-
-
-.header {
-
-    flex-direction:column;
-
-    padding:15px 10px;
-
-}
-
-
-
-.vereinslogo {
-
-    position:static;
-
-    width:65px;
-
-    height:65px;
-
-    margin-bottom:10px;
-
-}
-
-
-
-.header-text {
-
-    width:100%;
-
-}
-
-
-
-.header-text h1 {
-
-    font-size:23px;
-
-    line-height:1.2;
-
-}
-
-
-
-.header-text p {
-
-    font-size:16px;
-
-}
-
-
-
-th,
-td {
-
-    font-size:13px;
-
-    padding:7px;
-
-}
-
-
-
-/* Gruppen mobil kompakt */
-
-#gruppeA th:nth-child(1),
-#gruppeA td:nth-child(1),
-#gruppeB th:nth-child(1),
-#gruppeB td:nth-child(1) {
-
-    width:30px;
-
-    padding:4px 2px;
-
-}
-
-
-
-#gruppeA th:nth-child(2),
-#gruppeA td:nth-child(2),
-#gruppeB th:nth-child(2),
-#gruppeB td:nth-child(2) {
-
-    width:auto;
-
-    min-width:0;
-
-    white-space:nowrap;
-
-    padding:4px;
-
-    font-size:13px;
-
-}
-
-
-
-#gruppeA th:nth-child(n+3),
-#gruppeA td:nth-child(n+3),
-#gruppeB th:nth-child(n+3),
-#gruppeB td:nth-child(n+3) {
-
-    width:32px;
-
-    min-width:32px;
-
-    padding:4px 1px;
-
-    font-size:13px;
-
-}
-
-
-
-#gruppeA th,
-#gruppeB th {
-
-    font-size:13px;
-
-}
-
-
-}
+setInterval(
+    ladeTabelle,
+    AKTUALISIERUNG
+);
