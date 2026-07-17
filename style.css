@@ -632,3 +632,29 @@ td {
 
 
 }
+
+/* =====================
+   WASSERZEICHEN
+===================== */
+
+.wasserzeichen {
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:40px;
+
+    margin-bottom:0px;
+
+}
+
+.wasserzeichen img {
+
+    width:150px;
+    height:auto;
+    opacity:0.12;
+    user-select:none;
+    pointer-events:none;
+
+}
