@@ -274,42 +274,40 @@ td:last-child {
 
 
 /* =====================
-   GRUPPENTABELLEN OHNE STREIFEN
+   GRUPPENTABELLEN
 ===================== */
+
+
+/* alle Gruppenzeilen weiß */
 
 #gruppeA tr,
 #gruppeB tr {
 
-    background:white;
+    background:#FFFFFF !important;
 
 }
 
 
-/* Hover nur für normale Zeilen */
 
-#gruppeA tr:hover,
-#gruppeB tr:hover {
-
-    background:#dff2df;
-
-}
-
-
-/* Top 2 Plätze bleiben grün */
+/* Top 2 Plätze grün */
 
 #gruppeA tr:nth-child(1),
 #gruppeA tr:nth-child(2),
 #gruppeB tr:nth-child(1),
 #gruppeB tr:nth-child(2) {
 
-    background:#E8F5E9;
+    background:#E8F5E9 !important;
 
 }
 
 
-tbody tr:hover {
 
-    background:#dff2df;
+/* Hover */
+
+#gruppeA tr:hover,
+#gruppeB tr:hover {
+
+    background:#dff2df !important;
 
 }
 
@@ -326,30 +324,12 @@ td:nth-child(2) {
     white-space:nowrap;
 
 }
-
-
-
-/* =====================
-   TOP 2 GRUPPEN
-===================== */
-
-#gruppeA tr:nth-child(1),
-#gruppeA tr:nth-child(2),
-#gruppeB tr:nth-child(1),
-#gruppeB tr:nth-child(2) {
-
-    background:#E8F5E9;
-
-}
-
-
-
 /* =====================
    SPIELPLAN / K.O. RUNDE
 ===================== */
 
 
-/* Noch nicht gespielte Spiele abwechselnd */
+/* Noch offene Spiele abwechselnd */
 
 #spielplan tr:nth-child(even),
 #koRunde tr:nth-child(even) {
@@ -362,39 +342,30 @@ td:nth-child(2) {
 #spielplan tr:nth-child(odd),
 #koRunde tr:nth-child(odd) {
 
-    background:white;
+    background:#FFFFFF;
 
 }
 
 
 
-/* Gespielte Spiele grau */
+/* Gespielte Spiele */
 
 #spielplan tr:has(td:nth-child(6):not(:empty)),
 #koRunde tr:has(td:nth-child(6):not(:empty)) {
 
-    background:#E2E2E2   !important;
-
-}
-
-
-/* Halbfinale / Finale bleiben grün */
-
-.runde-titel td {
-
-    background:#E8F5E9 !important;
+    background:#E2E2E2 !important;
 
 }
 
 
 
 /* =====================
-   K.O.-RUNDE
+   K.O.-RUNDE TITEL
 ===================== */
 
 .runde-titel td {
 
-    background:#E8F5E9;
+    background:#E8F5E9 !important;
 
     color:#114B1F;
 
@@ -412,6 +383,7 @@ td:nth-child(2) {
 
 /* =====================
    SPIELPLAN / K.O.
+   SPALTEN
 ===================== */
 
 
@@ -467,7 +439,7 @@ td:nth-child(2) {
 
 
 
-/* Mannschaften */
+/* Heim / Gast */
 
 #spielplan th:nth-child(4),
 #spielplan td:nth-child(4),
@@ -484,7 +456,7 @@ td:nth-child(2) {
 
 
 
-/* Shootout */
+/* 9m Sieger / Shootout */
 
 #spielplan th:nth-child(7),
 #spielplan td:nth-child(7),
@@ -511,6 +483,8 @@ body {
 }
 
 
+
+/* HEADER */
 
 .header {
 
@@ -562,6 +536,8 @@ body {
 
 
 
+/* Tabellen */
+
 th,
 td {
 
@@ -573,7 +549,12 @@ td {
 
 
 
-/* Gruppen mobil kompakt */
+/* =====================
+   GRUPPEN MOBILE
+===================== */
+
+
+/* Platz */
 
 #gruppeA th:nth-child(1),
 #gruppeA td:nth-child(1),
@@ -587,6 +568,8 @@ td {
 }
 
 
+
+/* Mannschaft */
 
 #gruppeA th:nth-child(2),
 #gruppeA td:nth-child(2),
@@ -606,6 +589,8 @@ td {
 }
 
 
+
+/* Zahlen */
 
 #gruppeA th:nth-child(n+3),
 #gruppeA td:nth-child(n+3),
