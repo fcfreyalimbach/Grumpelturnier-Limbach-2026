@@ -273,12 +273,38 @@ td:last-child {
 
 
 
-tbody tr:nth-child(even) {
+/* =====================
+   GRUPPENTABELLEN OHNE STREIFEN
+===================== */
 
-    background:#f4faf4;
+#gruppeA tr,
+#gruppeB tr {
+
+    background:white;
 
 }
 
+
+/* Hover nur für normale Zeilen */
+
+#gruppeA tr:hover,
+#gruppeB tr:hover {
+
+    background:#dff2df;
+
+}
+
+
+/* Top 2 Plätze bleiben grün */
+
+#gruppeA tr:nth-child(1),
+#gruppeA tr:nth-child(2),
+#gruppeB tr:nth-child(1),
+#gruppeB tr:nth-child(2) {
+
+    background:#E8F5E9;
+
+}
 
 
 tbody tr:hover {
@@ -319,13 +345,44 @@ td:nth-child(2) {
 
 
 /* =====================
-   GESPIELTE PARTIEN
+   SPIELPLAN / K.O. RUNDE
 ===================== */
+
+
+/* Noch nicht gespielte Spiele abwechselnd */
+
+#spielplan tr:nth-child(even),
+#koRunde tr:nth-child(even) {
+
+    background:#F8F8F8;
+
+}
+
+
+#spielplan tr:nth-child(odd),
+#koRunde tr:nth-child(odd) {
+
+    background:white;
+
+}
+
+
+
+/* Gespielte Spiele grau */
 
 #spielplan tr:has(td:nth-child(6):not(:empty)),
 #koRunde tr:has(td:nth-child(6):not(:empty)) {
 
-    background:#E6E6E6;
+    background:#E2E2E2   !important;
+
+}
+
+
+/* Halbfinale / Finale bleiben grün */
+
+.runde-titel td {
+
+    background:#E8F5E9 !important;
 
 }
 
