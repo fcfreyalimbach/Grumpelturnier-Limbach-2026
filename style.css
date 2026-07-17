@@ -1,56 +1,52 @@
-/* =====================
-   GRUNDEINSTELLUNGEN
-===================== */
-
 * {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
 
 
 body {
 
-    margin: 0;
+    margin:0;
 
-    padding: 20px;
+    padding:20px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
-    background: #eaf5ea;
+    background:#eaf5ea;
 
-    color: #1b1b1b;
+    color:#1b1b1b;
 
 }
 
 
 
 /* =====================
-   HEADER MIT LOGO
+   HEADER
 ===================== */
 
 .header {
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    position: relative;
+    position:relative;
 
-    background: #114B1F;
+    background:#114B1F;
 
-    color: white;
+    color:white;
 
-    padding: 15px 40px;
+    padding:15px 40px;
 
-    border-radius: 15px;
+    border-radius:15px;
 
-    margin-bottom: 20px;
+    margin-bottom:20px;
 
 }
 
@@ -58,17 +54,17 @@ body {
 
 .vereinslogo {
 
-    position: absolute;
+    position:absolute;
 
-    left: 30px;
+    left:30px;
 
-    top: 25px;
+    top:15px;
 
-    width: 85px;
+    width:90px;
 
-    height: 85px;
+    height:90px;
 
-    object-fit: contain;
+    object-fit:contain;
 
 }
 
@@ -76,11 +72,7 @@ body {
 
 .header-text {
 
-    text-align: center;
-
-    margin-left: 40px;
-
-    margin-top: 30px;
+    text-align:center;
 
 }
 
@@ -88,9 +80,9 @@ body {
 
 .header-text h1 {
 
-    margin: 0;
+    margin:0;
 
-    font-size: 34px;
+    font-size:34px;
 
 }
 
@@ -98,11 +90,11 @@ body {
 
 .header-text p {
 
-    margin-top: 5px;
+    margin-top:5px;
 
-    font-size: 18px;
+    font-size:18px;
 
-    line-height: 1.8;
+    line-height:1.5;
 
 }
 
@@ -110,9 +102,9 @@ body {
 
 .datum {
 
-    display: inline-block;
+    display:inline-block;
 
-    margin-top: 30px;
+    margin-top:15px;
 
 }
 
@@ -124,15 +116,15 @@ body {
 
 .navigation {
 
-    display: flex;
+    display:flex;
 
-    justify-content: center;
+    justify-content:center;
 
-    gap: 15px;
+    gap:15px;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 
 }
 
@@ -140,19 +132,17 @@ body {
 
 .navigation a {
 
-    text-decoration: none;
+    text-decoration:none;
 
-    background: #808080;
+    background:#114B1F;
 
-    color: white;
+    color:white;
 
-    padding: 12px 25px;
+    padding:12px 25px;
 
-    border-radius: 10px;
+    border-radius:10px;
 
-    font-weight: bold;
-
-    transition: 0.2s;
+    font-weight:bold;
 
 }
 
@@ -160,9 +150,7 @@ body {
 
 .navigation a:hover {
 
-    background: #0a3215;
-
-    transform: scale(1.05);
+    background:#0a3215;
 
 }
 
@@ -174,9 +162,9 @@ body {
 
 main {
 
-    max-width: 1200px;
+    max-width:1200px;
 
-    margin: auto;
+    margin:auto;
 
 }
 
@@ -184,57 +172,39 @@ main {
 
 .box {
 
-    background: white;
+    background:white;
 
-    padding: 20px;
+    padding:20px;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 
-    border-radius: 15px;
+    border-radius:15px;
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-
-    overflow: hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 
 }
 
-
-.box table {
-
-    display: block;
-
-    overflow-x: auto;
-
-    width: 100%;
-
-}
-@media(max-width:700px) {
-
-    .box {
-
-        padding: 15px;
-
-    }
-
-
-    h2 {
-
-        position: relative;
-
-        z-index: 2;
-
-        background: white;
-
-    }
-
-}
 
 
 h2 {
 
-    text-align: center;
+    text-align:center;
 
-    color: #114B1F;
+    color:#114B1F;
+
+}
+
+
+
+/* =====================
+   TABELLEN SCROLL
+===================== */
+
+.tabelle-scroll {
+
+    width:100%;
+
+    overflow-x:auto;
 
 }
 
@@ -246,11 +216,13 @@ h2 {
 
 table {
 
-    width: 100%;
+    width:auto;
 
-    border-collapse: collapse;
+    min-width:100%;
 
-    min-width: 700px;
+    border-collapse:collapse;
+
+    table-layout:auto;
 
 }
 
@@ -258,9 +230,9 @@ table {
 
 thead {
 
-    background: #114B1F;
+    background:#114B1F;
 
-    color: white;
+    color:white;
 
 }
 
@@ -268,11 +240,11 @@ thead {
 
 th {
 
-    padding: 12px;
+    padding:12px;
 
-    text-align: center;
+    text-align:center;
 
-    border-right: 1px solid #3b8f4b;
+    border-right:1px solid #3b8f4b;
 
 }
 
@@ -280,13 +252,13 @@ th {
 
 td {
 
-    padding: 10px;
+    padding:10px;
 
-    text-align: center;
+    text-align:center;
 
-    border-right: 1px solid #cfcfcf;
+    border-right:1px solid #cfcfcf;
 
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom:1px solid #d8d8d8;
 
 }
 
@@ -295,7 +267,7 @@ td {
 th:last-child,
 td:last-child {
 
-    border-right: none;
+    border-right:none;
 
 }
 
@@ -303,7 +275,7 @@ td:last-child {
 
 tbody tr:nth-child(even) {
 
-    background: #f4faf4;
+    background:#f4faf4;
 
 }
 
@@ -311,129 +283,296 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
 
-    background: #dff2df;
+    background:#dff2df;
 
 }
 
 
 
-/* Mannschaftsnamen links */
+/* Mannschaft links */
 
 td:nth-child(2) {
 
-    text-align: left;
+    text-align:left;
 
-    font-weight: bold;
+    font-weight:bold;
+
+    white-space:nowrap;
 
 }
 
 
 
 /* =====================
-   FERTIGE SPIELE GRAU
+   TOP 2 GRUPPEN
+===================== */
+
+#gruppeA tr:nth-child(1),
+#gruppeA tr:nth-child(2),
+#gruppeB tr:nth-child(1),
+#gruppeB tr:nth-child(2) {
+
+    background:#E8F5E9;
+
+}
+
+
+
+/* =====================
+   GESPIELTE PARTIEN
 ===================== */
 
 #spielplan tr:has(td:nth-child(6):not(:empty)),
 #koRunde tr:has(td:nth-child(6):not(:empty)) {
 
-    background: #eeeeee;
+    background:#E6E6E6;
 
 }
 
 
 
 /* =====================
-   K.O.-RUNDE TITEL
+   K.O.-RUNDE
 ===================== */
 
 .runde-titel td {
 
-    text-align: center;
+    background:#E8F5E9;
 
-    font-size: 20px;
+    color:#114B1F;
 
-    font-weight: bold;
+    font-size:22px;
 
-    background: #d1e6d3;
+    font-weight:bold;
 
-    color: #114B1F;
+    text-align:center;
+
+    padding:15px;
 
 }
 
 
 
 /* =====================
-   MOBILE ANPASSUNG
+   SPIELPLAN / K.O.
+===================== */
+
+
+/* Spiel */
+
+#spielplan th:nth-child(1),
+#spielplan td:nth-child(1),
+#koRunde th:nth-child(1),
+#koRunde td:nth-child(1) {
+
+    width:55px;
+
+}
+
+
+
+/* Beginn */
+
+#spielplan th:nth-child(2),
+#spielplan td:nth-child(2),
+#koRunde th:nth-child(2),
+#koRunde td:nth-child(2) {
+
+    width:75px;
+
+}
+
+
+
+/* Platz */
+
+#spielplan th:nth-child(3),
+#spielplan td:nth-child(3),
+#koRunde th:nth-child(3),
+#koRunde td:nth-child(3) {
+
+    width:55px;
+
+}
+
+
+
+/* Ergebnis */
+
+#spielplan th:nth-child(6),
+#spielplan td:nth-child(6),
+#koRunde th:nth-child(6),
+#koRunde td:nth-child(6) {
+
+    width:80px;
+
+}
+
+
+
+/* Mannschaften */
+
+#spielplan th:nth-child(4),
+#spielplan td:nth-child(4),
+#spielplan th:nth-child(5),
+#spielplan td:nth-child(5),
+#koRunde th:nth-child(4),
+#koRunde td:nth-child(4),
+#koRunde th:nth-child(5),
+#koRunde td:nth-child(5) {
+
+    white-space:nowrap;
+
+}
+
+
+
+/* Shootout */
+
+#spielplan th:nth-child(7),
+#spielplan td:nth-child(7),
+#koRunde th:nth-child(7),
+#koRunde td:nth-child(7) {
+
+    width:100px;
+
+}
+
+
+
+/* =====================
+   MOBILE
 ===================== */
 
 @media(max-width:700px) {
 
 
-    body {
+body {
 
-        padding: 10px;
+    padding:10px;
 
-    }
-
-
-
-    .header {
-
-        flex-direction: column;
-
-        padding-top: 20px;
-
-    }
+}
 
 
 
-    .vereinslogo {
+.header {
 
-        position: static;
+    flex-direction:column;
 
-        width: 90px;
+    padding:15px 10px;
 
-        height: 90px;
-
-        margin-bottom: 15px;
-
-    }
+}
 
 
 
-    .header-text {
+.vereinslogo {
 
-        margin-left: 0;
+    position:static;
 
-        margin-top: 0;
+    width:65px;
 
-    }
+    height:65px;
 
+    margin-bottom:10px;
 
-
-    .header-text h1 {
-
-        font-size: 24px;
-
-    }
+}
 
 
 
-    .header-text p {
+.header-text {
 
-        font-size: 16px;
+    width:100%;
 
-    }
+}
 
 
 
-    th,
-    td {
+.header-text h1 {
 
-        font-size: 13px;
+    font-size:23px;
 
-        padding: 7px;
+    line-height:1.2;
 
-    }
+}
+
+
+
+.header-text p {
+
+    font-size:16px;
+
+}
+
+
+
+th,
+td {
+
+    font-size:13px;
+
+    padding:7px;
+
+}
+
+
+
+/* Gruppen mobil kompakt */
+
+#gruppeA th:nth-child(1),
+#gruppeA td:nth-child(1),
+#gruppeB th:nth-child(1),
+#gruppeB td:nth-child(1) {
+
+    width:30px;
+
+    padding:4px 2px;
+
+}
+
+
+
+#gruppeA th:nth-child(2),
+#gruppeA td:nth-child(2),
+#gruppeB th:nth-child(2),
+#gruppeB td:nth-child(2) {
+
+    width:auto;
+
+    min-width:0;
+
+    white-space:nowrap;
+
+    padding:4px;
+
+    font-size:13px;
+
+}
+
+
+
+#gruppeA th:nth-child(n+3),
+#gruppeA td:nth-child(n+3),
+#gruppeB th:nth-child(n+3),
+#gruppeB td:nth-child(n+3) {
+
+    width:32px;
+
+    min-width:32px;
+
+    padding:4px 1px;
+
+    font-size:13px;
+
+}
+
+
+
+#gruppeA th,
+#gruppeB th {
+
+    font-size:13px;
+
+}
+
 
 }
