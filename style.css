@@ -480,13 +480,23 @@ td:nth-child(2) {
 
 body {
 
-    padding:10px;
+    padding:5px;
 
     padding-bottom:80px;
 
 }
 
+/* Boxen auf Handy näher an den Rand */
 
+.box {
+
+    padding:5px;
+
+    margin-bottom:15px;
+
+    border-radius:5px;
+
+}
 
 /* HEADER */
 
