@@ -431,14 +431,46 @@ td:last-child {
 
 /* Zahlen */
 
-#gruppeA th:nth-child(n+3),
-#gruppeA td:nth-child(n+3),
-#gruppeB th:nth-child(n+3),
-#gruppeB td:nth-child(n+3) {
+#gruppeA th:nth-child(3),
+#gruppeA td:nth-child(3),
+#gruppeA th:nth-child(4),
+#gruppeA td:nth-child(4),
+#gruppeA th:nth-child(5),
+#gruppeA td:nth-child(5),
+#gruppeA th:nth-child(6),
+#gruppeA td:nth-child(6),
+#gruppeA th:nth-child(8),
+#gruppeA td:nth-child(8),
+#gruppeA th:nth-child(9),
+#gruppeA td:nth-child(9),
+
+#gruppeB th:nth-child(3),
+#gruppeB td:nth-child(3),
+#gruppeB th:nth-child(4),
+#gruppeB td:nth-child(4),
+#gruppeB th:nth-child(5),
+#gruppeB td:nth-child(5),
+#gruppeB th:nth-child(6),
+#gruppeB td:nth-child(6),
+#gruppeB th:nth-child(8),
+#gruppeB td:nth-child(8),
+#gruppeB th:nth-child(9),
+#gruppeB td:nth-child(9) {
 
     width:45px;
 
     text-align:center;
+
+}
+
+/* Tore-Spalte */
+#gruppeA th:nth-child(7),
+#gruppeA td:nth-child(7),
+#gruppeB th:nth-child(7),
+#gruppeB td:nth-child(7) {
+
+    width:65px;
+    white-space:nowrap;
 
 }
 
