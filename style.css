@@ -48,7 +48,7 @@ body {
 
     border-radius:15px;
 
-    margin-bottom:20px;
+    margin-bottom:10px;
 
 }
 
@@ -110,6 +110,7 @@ body {
 
 }
 
+
 .turnier-info {
 
     margin-top:40px;
@@ -117,6 +118,7 @@ body {
     margin-bottom:0px;
 
 }
+
 
 
 /* =====================
@@ -129,9 +131,9 @@ body {
 
     justify-content:center;
 
-    gap:15px;
+    gap:5px;
 
-    margin-bottom:25px;
+    margin-bottom:15px;
 
     flex-wrap:wrap;
 
@@ -147,7 +149,7 @@ body {
 
     color:white;
 
-    padding:12px 25px;
+    padding:8px 10px;
 
     border-radius:10px;
 
@@ -163,6 +165,62 @@ body {
 
 }
 
+/* =====================
+   NAVIGATION GRUPPEN
+===================== */
+
+.navigation {
+
+    flex-direction:column;
+
+}
+
+
+.nav-oben,
+.nav-unten {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.nav-unten {
+
+    margin-top:7px;
+
+}
+
+/* =====================
+   SUBSEITEN NAVIGATION
+===================== */
+
+.navigation:has(a[href="index.html"]:only-child) {
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:auto;
+
+}
+
+
+.navigation:has(a[href="index.html"]:only-child) a {
+
+    width:auto;
+
+    display:inline-block;
+
+    padding:10px 20px;
+
+}
 
 
 /* =====================
@@ -200,6 +258,10 @@ h2 {
     text-align:center;
 
     color:#104A29;
+
+    margin-top:0;
+
+    margin-bottom:15px;
 
 }
 
@@ -348,7 +410,7 @@ td:last-child {
 
 
 
-/* Mannschaft flexibel */
+/* Mannschaft */
 
 #gruppeA th:nth-child(2),
 #gruppeA td:nth-child(2),
@@ -367,7 +429,7 @@ td:last-child {
 
 
 
-/* alle Zahlen-Spalten gleich groß */
+/* Zahlen */
 
 #gruppeA th:nth-child(n+3),
 #gruppeA td:nth-child(n+3),
@@ -379,12 +441,12 @@ td:last-child {
     text-align:center;
 
 }
+
+
+
 /* =====================
-   SPIELPLAN / K.O. RUNDE
+   SPIELPLAN / K.O.
 ===================== */
-
-
-/* Wechselnde Zeilen */
 
 #spielplan tr:nth-child(even),
 #koRunde tr:nth-child(even) {
@@ -401,21 +463,26 @@ td:last-child {
 
 }
 
-/* =====================
-   SHOOTOUT SIEGER
-===================== */
+
+
+/* Shootout */
 
 #spielplan th:nth-child(7),
 #spielplan td:nth-child(7) {
 
     width:75px;
+
     max-width:75px;
+
     white-space:normal;
+
     text-align:center;
 
 }
 
-/* Gespielte Spiele mit Ergebnis + Shootout Sieger */
+
+
+/* Ergebnis grau */
 
 #spielplan tr:has(td:nth-child(6):not(:empty)):has(td:nth-child(7):not(:empty)) {
 
@@ -430,8 +497,6 @@ td:last-child {
     background:#E2E2E2 !important;
 
 }
-
-
 
 /* =====================
    K.O.-RUNDE TITEL
@@ -452,6 +517,9 @@ td:last-child {
     padding:10px;
 
 }
+
+
+
 /* =====================
    SPIELPLAN / K.O.
    SPALTEN
@@ -610,7 +678,7 @@ body {
 
 
 
-/* Tabellen */
+/* Tabellen allgemein */
 
 th,
 td {
@@ -628,16 +696,43 @@ td {
 ===================== */
 
 
-/* Platz */
+/* Platz Überschrift nur Gruppen ausblenden */
 
-#gruppeA th:nth-child(1),
-#gruppeA td:nth-child(1),
-#gruppeB th:nth-child(1),
-#gruppeB td:nth-child(1) {
+table:has(tbody#gruppeA) thead th:first-child,
+table:has(tbody#gruppeB) thead th:first-child {
 
-    width:30px;
+    color:transparent !important;
 
-    padding:4px 2px;
+    font-size:0 !important;
+
+    padding:0 !important;
+
+    width:18px !important;
+
+    min-width:18px !important;
+
+    max-width:18px !important;
+
+}
+
+
+
+/* Platznummern eng */
+
+tbody#gruppeA td:first-child,
+tbody#gruppeB td:first-child {
+
+    width:18px !important;
+
+    min-width:18px !important;
+
+    max-width:18px !important;
+
+    padding-left:0 !important;
+
+    padding-right:0 !important;
+
+    text-align:center;
 
 }
 
@@ -645,20 +740,18 @@ td {
 
 /* Mannschaft */
 
-#gruppeA th:nth-child(2),
-#gruppeA td:nth-child(2),
-#gruppeB th:nth-child(2),
-#gruppeB td:nth-child(2) {
-
-    width:auto;
-
-    min-width:0;
+tbody#gruppeA td:nth-child(2),
+tbody#gruppeB td:nth-child(2) {
 
     white-space:nowrap;
 
     padding:4px;
 
+    text-align:left;
+
     font-size:13px;
+
+    font-weight:bold;
 
 }
 
@@ -666,14 +759,14 @@ td {
 
 /* Zahlen */
 
-#gruppeA th:nth-child(n+3),
-#gruppeA td:nth-child(n+3),
-#gruppeB th:nth-child(n+3),
-#gruppeB td:nth-child(n+3) {
+tbody#gruppeA td:nth-child(n+3),
+tbody#gruppeB td:nth-child(n+3) {
 
     width:32px;
 
     min-width:32px;
+
+    max-width:32px;
 
     padding:4px 1px;
 
@@ -683,17 +776,186 @@ td {
 
 
 
-#gruppeA th,
-#gruppeB th {
+/* Gruppen Kopf */
+
+table:has(tbody#gruppeA) thead th:not(:first-child),
+table:has(tbody#gruppeB) thead th:not(:first-child) {
 
     font-size:13px;
 
 }
 
 
+
+/* =====================
+   SPIELPLAN / K.O. MOBILE
+===================== */
+
+
+/* Kopf */
+
+#spielplan ~ *,
+#koRunde ~ * {
+
 }
 
 
+
+/* Spielplan und K.O. Überschriften */
+
+#spielplan th,
+#koRunde th {
+
+    font-size:10px;
+
+    padding:2px 1px;
+
+    line-height:1;
+
+    white-space:normal;
+
+    word-break:break-word;
+
+    overflow-wrap:anywhere;
+
+    text-align:center;
+
+}
+
+
+
+/* Zellen */
+
+#spielplan td,
+#koRunde td {
+
+    font-size:11px;
+
+    padding:4px 2px;
+
+}
+
+
+
+/* Spiel */
+
+#spielplan th:nth-child(1),
+#spielplan td:nth-child(1),
+#koRunde th:nth-child(1),
+#koRunde td:nth-child(1) {
+
+    width:28px;
+
+    min-width:28px;
+
+}
+
+
+
+/* Beginn */
+
+#spielplan th:nth-child(2),
+#spielplan td:nth-child(2),
+#koRunde th:nth-child(2),
+#koRunde td:nth-child(2) {
+
+    width:45px;
+
+    min-width:45px;
+
+}
+
+
+
+/* Platz */
+
+#spielplan th:nth-child(3),
+#spielplan td:nth-child(3),
+#koRunde th:nth-child(3),
+#koRunde td:nth-child(3) {
+
+    width:30px;
+
+    min-width:30px;
+
+}
+
+
+
+/* Ergebnis */
+
+#spielplan th:nth-child(6),
+#spielplan td:nth-child(6),
+#koRunde th:nth-child(6),
+#koRunde td:nth-child(6) {
+
+    width:55px;
+
+    min-width:55px;
+
+}
+
+
+
+/* Shootout */
+
+#spielplan th:nth-child(7),
+#spielplan td:nth-child(7) {
+
+    width:45px;
+
+    min-width:45px;
+
+}
+
+
+}
+
+/* =====================
+   MOBILE NAVIGATION KLEINER
+===================== */
+
+@media(max-width:770px) {
+
+
+.navigation {
+
+    gap:2px;
+
+    margin-bottom:10px;
+
+}
+
+
+.navigation a {
+
+    padding:7px 10px;
+
+    font-size:13px;
+
+    border-radius:6px;
+
+}
+
+
+.nav-oben,
+.nav-unten {
+
+    gap:5px;
+
+}
+
+
+/* Abstand zum Header verkleinern */
+
+.header {
+
+    margin-bottom:10px;
+
+}
+
+
+}
 
 /* =====================
    WASSERZEICHEN
@@ -724,5 +986,32 @@ td {
     user-select:none;
 
     pointer-events:none;
+
+}
+/* =====================
+   UNTERSEITEN HEADER KLEINER
+===================== */
+
+.unterseite-header {
+
+    padding-top:10px;
+
+    padding-bottom:0px;
+
+    margin-bottom:10px;
+
+}
+
+
+.unterseite-header .header-text h1 {
+
+    margin-bottom:5px;
+
+}
+
+
+.unterseite-header .header-text p {
+
+    margin-top:3px;
 
 }
