@@ -1046,3 +1046,112 @@ table:has(tbody#gruppeB) thead th:not(:first-child) {
     margin-top:3px;
 
 }
+
+/* =====================
+   TOP 3 RANGLISTE
+===================== */
+
+.rangliste {
+
+    max-width:500px;
+
+    margin:0 auto 20px auto;
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+
+}
+
+
+.rangliste h2 {
+
+    text-align:center;
+
+    color:#104A29;
+
+    margin-top:0;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.platz {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:12px;
+
+    margin-bottom:8px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Sieger */
+
+.platz:nth-child(2) {
+
+    background:#f8e7a8;
+
+    font-size:23px;
+
+}
+
+
+/* Zweiter Platz */
+
+.platz:nth-child(3) {
+
+    background:#d9d9d9;
+
+}
+
+
+/* Dritter Platz */
+
+.platz:nth-child(4) {
+
+    background:#e8c39e;
+
+}
+
+
+
+.rang {
+
+    font-size:24px;
+
+}
+
+
+
+.name {
+
+    flex:1;
+
+    margin-left:10px;
+
+}
+
+
+
+.punkte {
+
+    font-size:14px;
+
+}
