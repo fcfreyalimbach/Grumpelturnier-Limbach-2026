@@ -287,6 +287,19 @@ td:last-child {
 ===================== */
 
 
+/* feste Spaltenbreiten */
+
+#gruppeA table,
+#gruppeB table {
+
+    table-layout:fixed;
+
+    width:100%;
+
+}
+
+
+
 /* alle Gruppenzeilen */
 
 #gruppeA tr,
@@ -322,9 +335,27 @@ td:last-child {
 
 
 
-/* Mannschaft links */
+/* Platz */
 
-td:nth-child(2) {
+#gruppeA th:nth-child(1),
+#gruppeA td:nth-child(1),
+#gruppeB th:nth-child(1),
+#gruppeB td:nth-child(1) {
+
+    width:45px;
+
+}
+
+
+
+/* Mannschaft flexibel */
+
+#gruppeA th:nth-child(2),
+#gruppeA td:nth-child(2),
+#gruppeB th:nth-child(2),
+#gruppeB td:nth-child(2) {
+
+    width:auto;
 
     text-align:left;
 
@@ -336,6 +367,18 @@ td:nth-child(2) {
 
 
 
+/* alle Zahlen-Spalten gleich groß */
+
+#gruppeA th:nth-child(n+3),
+#gruppeA td:nth-child(n+3),
+#gruppeB th:nth-child(n+3),
+#gruppeB td:nth-child(n+3) {
+
+    width:45px;
+
+    text-align:center;
+
+}
 /* =====================
    SPIELPLAN / K.O. RUNDE
 ===================== */
@@ -358,7 +401,19 @@ td:nth-child(2) {
 
 }
 
+/* =====================
+   SHOOTOUT SIEGER
+===================== */
 
+#spielplan th:nth-child(7),
+#spielplan td:nth-child(7) {
+
+    width:75px;
+    max-width:75px;
+    white-space:normal;
+    text-align:center;
+
+}
 
 /* Gespielte Spiele mit Ergebnis + Shootout Sieger */
 
