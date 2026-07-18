@@ -484,8 +484,7 @@ td:last-child {
 
 /* Ergebnis grau */
 
-#spielplan tr:has(td:nth-child(6):not(:empty)):has(td:nth-child(7):not(:empty)) {
-
+#spielplan tr:has(td:nth-child(6):not(:empty)) {
     background:#E2E2E2 !important;
 
 }
